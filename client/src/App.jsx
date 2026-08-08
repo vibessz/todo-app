@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -13,11 +14,11 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className='container'>
       <h1>My Tasks</h1>
-      <ul>
+      <ul className='todo-list'>
         {tasks.map((task) => (
-          <li key={task.id} onClick={() => {setEditingId(task.id); setEditingTask(task.text); console.log(task.id);}}>
+          <li className='todo-item' key={task.id} onClick={() => {setEditingId(task.id); setEditingTask(task.text); console.log(task.id);}}>
             
             
             {task.id === editingId ? 
@@ -43,14 +44,15 @@ function App() {
               
               : (task.text)}
 
-          <button onClick={(e) => (
-
+          <button onClick={(e) => {
+            
+            e.stopPropagation()
             fetch(`http://localhost:3000/tasks/${task.id}`, {
               method: 'DELETE',
             } ).then((res) => res.json()).then((data) => setTasks(data))
 
 
-          )}>Del</button>
+          }}>Del</button>
 
           </li>         
         ))}
