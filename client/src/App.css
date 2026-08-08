@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
+  background: #FAFAFA;
 }
 
 .container {
@@ -8,9 +9,6 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: #FAFAFA;
-  padding-top: 60px;
-  box-sizing: border-box;
 }
 
 h1 {
@@ -24,16 +22,21 @@ h1 {
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  width: 320px;
+  min-width: 50vh;
   list-style: none;
 }
 
 .todo-item {
-  padding: 12px 0;
+  display: flex;
+  padding: 12px;
+  padding-left: 30px;
   border-bottom: 1px solid #E0E0E0;
   cursor: pointer;
   color: #1A1A1A;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .todo-item:last-child {
   border-bottom: none;
@@ -47,7 +50,7 @@ input[type="text"] {
   margin-top: 16px;
 }
 
-button {
+#submit {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
@@ -57,6 +60,17 @@ button {
   cursor: pointer;
   margin-left: 8px;
 
+}
+
+.deleteButtons {
+  padding: 5px 8px;
+  border: none;
+  border-radius: 8px;
+  background: #ff0101;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 8px;
 }
 
 button:hover {

@@ -13,6 +13,18 @@ function App() {
       .then((data) => setTasks(data))
   }, [])
 
+  function editSave(e, task){
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
+                                  method: 'PUT',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({text: editingTask})
+                                })
+                                .then((res) => res.json())
+                                .then((data) => setTasks(data))
+                                .then(() => setEditingTask("")).then(() => setEditingId(null))
+                                
+  }
+
   return (
     <div className='container'>
       <h1>My Tasks</h1>
@@ -27,24 +39,16 @@ function App() {
 
               <form onSubmit={
                                 (e) => {e.preventDefault()
-                                fetch(`http://localhost:3000/tasks/${task.id}`, {
-                                  method: 'PUT',
-                                  headers: { 'Content-Type': 'application/json' },
-                                  body: JSON.stringify({text: editingTask})
-                                })
-                                .then((res) => res.json())
-                                .then((data) => setTasks(data))
-                                .then(() => setEditingTask("")).then(() => setEditingId(null))
-                                }
+                                editSave(e, task)}
                               }>
             
-            <input autoFocus type='text' value={editingTask} onChange={(e) => setEditingTask(e.target.value)}></input>
+            <input autoFocus type='text' value={editingTask} onBlur={(e) => editSave(e, task)} onChange={(e) => setEditingTask(e.target.value)}></input>
             </form>
             ) 
               
               : (task.text)}
 
-          <button onClick={(e) => {
+          <button className='deleteButtons' onClick={(e) => {
             
             e.stopPropagation()
             fetch(`http://localhost:3000/tasks/${task.id}`, {
@@ -52,7 +56,7 @@ function App() {
             } ).then((res) => res.json()).then((data) => setTasks(data))
 
 
-          }}>Del</button>
+          }}>×</button>
 
           </li>         
         ))}
@@ -73,7 +77,7 @@ function App() {
 
         <input type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
 
-        <button type='submit'>Add</button>
+        <button id='submit' type='submit'>Add</button>
 
       </form>
       
