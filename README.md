@@ -6,7 +6,7 @@ A full-stack to-do list app, built to learn React and Express by building someth
 
 - Create tasks
 - View all tasks
-- Update and delete tasks (in progress)
+- Update and delete tasks
 
 ## Tech stack
 
@@ -16,8 +16,8 @@ A full-stack to-do list app, built to learn React and Express by building someth
 
 ## Roadmap
 
-- [ ] Finish PUT/DELETE
 - [ ] Persistent database
+- [ ] Good UI
 - [ ] Auth
 - [ ] Tags + priority sorting
 - [ ] Deploy live
