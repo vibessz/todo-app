@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className='container'>
-      <h1>My Tasks</h1>
+      <h1>To-Do List</h1>
       <ul className='todo-list'>
         {tasks.map((task) => (
           <li className='todo-item' key={task.id} onClick={() => {setEditingId(task.id); setEditingTask(task.text); console.log(task.id);}}>
@@ -37,12 +37,12 @@ function App() {
             (
                 
 
-              <form onSubmit={
+              <form className='editForm' onSubmit={
                                 (e) => {e.preventDefault()
                                 editSave(e, task)}
                               }>
             
-            <input autoFocus type='text' value={editingTask} onBlur={(e) => editSave(e, task)} onChange={(e) => setEditingTask(e.target.value)}></input>
+            <input className='editBar' autoFocus type='text' value={editingTask} onBlur={(e) => editSave(e, task)} onChange={(e) => setEditingTask(e.target.value)}></input>
             </form>
             ) 
               
@@ -73,11 +73,11 @@ function App() {
         .then(() => setNewTask(""))
         }
       }>
-
-
-        <input type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
-
-        <button id='submit' type='submit'>Add</button>
+        <div className='submitBar'>
+        <button id='submit' type='submit'>+</button>
+        <input className='addTaskBar' type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
+        </div>
+        
 
       </form>
       

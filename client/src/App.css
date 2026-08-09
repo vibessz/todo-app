@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background: #FAFAFA;
+  background: #e4e4e4;
 }
 
 .container {
@@ -28,13 +28,16 @@ h1 {
 
 .todo-item {
   display: flex;
-  padding: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 30px;
   border-bottom: 1px solid #E0E0E0;
   cursor: pointer;
   color: #1A1A1A;
   justify-content: space-between;
   align-items: center;
+  font-size: 20px;
+  cursor: text;
 }
 
 
@@ -42,19 +45,27 @@ h1 {
   border-bottom: none;
 }
 
-input[type="text"] {
-  padding: 8px 12px;
-  border: 1px solid #E0E0E0;
-  border-radius: 8px;
-  font-size: 14px;
-  margin-top: 16px;
+
+.editForm {
+  flex: 1;
+}
+
+.editBar {
+
+ 
+  width: 90%;
+  outline: 0;
+  border: none;
+  font-size: 20px;
+  margin-right: 10%;
+
 }
 
 #submit {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: #005fc5;
+  background: #000000;
   color: white;
   font-size: 14px;
   cursor: pointer;
@@ -66,7 +77,7 @@ input[type="text"] {
   padding: 5px 8px;
   border: none;
   border-radius: 8px;
-  background: #ff0101;
+  background: #000000;
   color: white;
   font-size: 25px;
   cursor: pointer;
@@ -74,5 +85,28 @@ input[type="text"] {
 }
 
 button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
+}
+
+.submitBar {
+  display: flex;
+  background: #FFFFFF;
+  padding: 12px 16px;
+  min-width: 50vh;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-width: 50vh;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.addTaskBar {
+  flex: 1;
+  font-size: 20px;
+  padding: 10px 12px;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
 }
