@@ -75,7 +75,7 @@ function App() {
       }>
         <div className='submitBar'>
         <button id='submit' type='submit'>+</button>
-        <input className='addTaskBar' type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
+        <input className='addTaskBar' placeholder='Add task' type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
         </div>
         
 
