@@ -25,9 +25,30 @@ function App() {
                                 
   }
 
+  function getDate(){
+  
+    return new Date().getDate()
+  }
+
+  function getDay(){
+  
+    return new Date().getDay()
+  }
+
   return (
+
+    <div className='page'>
+    <div className='sideBar'>
+      
+    </div>
     <div className='container'>
-      <h1>To-Do List</h1>
+      
+      <div className='topLabel'>
+        
+        <h1>{getDay()}</h1>
+        <h2>{getDate()}</h2>
+      </div>
+      
       <ul className='todo-list'>
         {tasks.map((task) => (
           <li className='todo-item' key={task.id} onClick={() => {setEditingId(task.id); setEditingTask(task.text); console.log(task.id);}}>
@@ -75,12 +96,13 @@ function App() {
       }>
         <div className='submitBar'>
         <button id='submit' type='submit'>+</button>
-        <input className='addTaskBar' type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
+        <input className='addTaskBar' placeholder='Add task' type='text' value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
         </div>
         
 
       </form>
       
+    </div>
     </div>
   )
 }
